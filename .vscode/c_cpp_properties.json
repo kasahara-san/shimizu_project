@@ -1,0 +1,24 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/opt/ros/humble/include/**",
+        "/home/common/SIP_PROJECTS/M2/SIMIZU_PROJECT/ros2_ws/src/opera/zx200/zx200_ros2/zx200_control/include/**",
+        "/home/common/SIP_PROJECTS/M2/SIMIZU_PROJECT/ros2_ws/src/opera/zx200/zx200_ros2/zx200_manipulator_ikfast_plugin/include/**",
+        "/home/common/SIP_PROJECTS/M2/SIMIZU_PROJECT/ros2_ws/src/ros2_tms_for_construction/tms_ts/tms_ts_subtask/include/**",
+        "/home/common/SIP_PROJECTS/M2/SIMIZU_PROJECT/ros2_ws/src/tms_if_for_opera/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}
