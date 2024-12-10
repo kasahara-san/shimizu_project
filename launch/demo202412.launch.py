@@ -28,12 +28,12 @@ def generate_launch_description():
         DeclareLaunchArgument('task_id1', default_value='8'),
         DeclareLaunchArgument('task_id2', default_value='9'),
 
-        # ros_tcp_endpoint
+        # ros_tcp_endpoint起動用
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(ros_tcp_endpoint_launch_file),
         ),
         
-        # IC120�p�̃i�r�Q�[�V�����p
+        # unityにおけるic120ナビゲーション用
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(ic120_standby_ekf_launch_file),
             launch_arguments={
@@ -42,22 +42,22 @@ def generate_launch_description():
             }.items(),
         ),
 
-        # Zx200��map -> base_link�Ԃ�tf��f���m�[�h
-        # PhysX���ZX200�̓V�~�����[�^���base_link�̈ʒu�̐^�l��f���Ă��邽�߁A���̏���map -> base_link�Ԃ�tf�Ƃ��ēf���Ă��܂�
-        # ���@�ł�map -> base_link�Ԃ͐ڑ��ł��Ă��܂���B
+
+        # zx200のmap->base_link間の座標をtfを発行するノード
+        # 実機ではmap ->base_link間は接続されていない点に注意
         Node(
             package='shimizu_project',
             executable='tf_broadcaster_map_to_baselink',
             name='tf_broadcaster_map_to_baselink',
         ),
 
-        # ZX200�̃}�j�s�����[�V�����p
+        # unityにおけるzx200マニピュレーション用
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(zx200_standby_launch_file),
             launch_arguments={'use_rviz': launch.substitutions.LaunchConfiguration('use_rviz_zx200')}.items()
         ),
 
-        # ROS2-TMS for Construction�p
+        # タスク管理機構(ROS2-TMS for COnstruction)起動用
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(tms_ts_demo202412_launch_file),
             launch_arguments={
@@ -66,12 +66,12 @@ def generate_launch_description():
                 }.items(),
         ),
 
-        # tms_if_for_opera�p (ROS2-TMS for Construction��OPERA�ڑ��p)
+        # tms_if_for_opera起動用
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(tms_if_for_opera_launch_file),
         ),
 
-        # �}�b�v�\���p
+
         # Node(
         #     package='shimizu_project',
         #     executable='operasim_physx_default_map_publisher',
