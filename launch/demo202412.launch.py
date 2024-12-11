@@ -27,6 +27,7 @@ def generate_launch_description():
         DeclareLaunchArgument('use_rviz_zx200', default_value='true'),
         DeclareLaunchArgument('task_id1', default_value='8'),
         DeclareLaunchArgument('task_id2', default_value='9'),
+        DeclareLaunchArgument('collision_object_record_name', default_value='collision_objects'),
 
         # ros_tcp_endpoint起動用
         IncludeLaunchDescription(
@@ -69,6 +70,7 @@ def generate_launch_description():
         # tms_if_for_opera起動用
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(tms_if_for_opera_launch_file),
+            launch_arguments={'collision_object_record_name': launch.substitutions.LaunchConfiguration('collision_object_record_name')}.items()
         ),
 
 
