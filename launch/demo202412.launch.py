@@ -25,7 +25,7 @@ def generate_launch_description():
         DeclareLaunchArgument('prefix_ic120_1', default_value='ic120'),
         DeclareLaunchArgument('use_rviz_ic120', default_value='false'),
         DeclareLaunchArgument('use_rviz_zx200', default_value='true'),
-        DeclareLaunchArgument('task_id1', default_value='8'),
+        DeclareLaunchArgument('task_id1', default_value='10'), # 8: ic120 (for the actual machinery), 10: ic120 (for the simulation)
         DeclareLaunchArgument('task_id2', default_value='9'),
         DeclareLaunchArgument('collision_object_record_name', default_value='collision_objects'),
 
