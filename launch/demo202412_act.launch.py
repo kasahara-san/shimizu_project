@@ -29,8 +29,10 @@ def generate_launch_description():
         DeclareLaunchArgument('prefix_ic120_1', default_value='ic120'),
         DeclareLaunchArgument('use_rviz_ic120', default_value='false'),
         DeclareLaunchArgument('use_rviz_zx200', default_value='true'),
+        DeclareLaunchArgument('robot_name_zx200', default_value='zx200'),
         DeclareLaunchArgument('task_id1', default_value='10'), # 8: ic120 (for the simulation), 10: ic120 (for the actualk machinery)
         DeclareLaunchArgument('task_id2', default_value='9'),
+        DeclareLaunchArgument('command_interface_name_zx200', default_value='velocity'),
         DeclareLaunchArgument('collision_object_record_name', default_value='collision_objects'),
 
         
@@ -47,6 +49,9 @@ def generate_launch_description():
         # zx200_vehicle起動
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(zx200_vehicle_launch_file),
+            launch_arguments={'robot_name': launch.substitutions.LaunchConfiguration('robot_name_zx200'),
+                              'use_rviz': launch.substitutions.LaunchConfiguration('use_rviz_zx200'),
+                              'command_interface_name': launch.substitutions.LaunchConfiguration('command_interface_name_zx200')}.items()
         ),
 
         # タスク管理機構(ROS2-TMS for Construction)起動用
